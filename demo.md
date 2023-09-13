@@ -1,0 +1,1 @@
+## npm i @babel/core @babel/node @babel/preset-env nodemon dotenv --save-dev
