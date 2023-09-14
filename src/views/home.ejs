@@ -1,81 +1,42 @@
 <div>
   <h2>trang chu</h2>
-  <div class="d-flex align-items-center">
-    <div class="card" style="width: 18rem">
-      <img src="..." class="card-img-top" alt="..." />
-      <div class="card-body">
-        <h5 class="card-title">Card title</h5>
-        <p class="card-text">
-          Some quick example text to build on the card title and make up the
-          bulk of the card's content.
-        </p>
-      </div>
-      <ul class="list-group list-group-flush">
-        <li class="list-group-item">An item</li>
-        <li class="list-group-item">A second item</li>
-        <li class="list-group-item">A third item</li>
-      </ul>
-      <div class="card-body">
-        <a href="#" class="card-link">Card link</a>
-        <a href="#" class="card-link">Another link</a>
-      </div>
-    </div>
-    <div class="card" style="width: 18rem">
-      <img src="..." class="card-img-top" alt="..." />
-      <div class="card-body">
-        <h5 class="card-title">Card title</h5>
-        <p class="card-text">
-          Some quick example text to build on the card title and make up the
-          bulk of the card's content.
-        </p>
-      </div>
-      <ul class="list-group list-group-flush">
-        <li class="list-group-item">An item</li>
-        <li class="list-group-item">A second item</li>
-        <li class="list-group-item">A third item</li>
-      </ul>
-      <div class="card-body">
-        <a href="#" class="card-link">Card link</a>
-        <a href="#" class="card-link">Another link</a>
-      </div>
-    </div>
-    <div class="card" style="width: 18rem">
-      <img src="..." class="card-img-top" alt="..." />
-      <div class="card-body">
-        <h5 class="card-title">Card title</h5>
-        <p class="card-text">
-          Some quick example text to build on the card title and make up the
-          bulk of the card's content.
-        </p>
-      </div>
-      <ul class="list-group list-group-flush">
-        <li class="list-group-item">An item</li>
-        <li class="list-group-item">A second item</li>
-        <li class="list-group-item">A third item</li>
-      </ul>
-      <div class="card-body">
-        <a href="#" class="card-link">Card link</a>
-        <a href="#" class="card-link">Another link</a>
-      </div>
-    </div>
-    <div class="card" style="width: 18rem">
-      <img src="..." class="card-img-top" alt="..." />
-      <div class="card-body">
-        <h5 class="card-title">Card title</h5>
-        <p class="card-text">
-          Some quick example text to build on the card title and make up the
-          bulk of the card's content.
-        </p>
-      </div>
-      <ul class="list-group list-group-flush">
-        <li class="list-group-item">An item</li>
-        <li class="list-group-item">A second item</li>
-        <li class="list-group-item">A third item</li>
-      </ul>
-      <div class="card-body">
-        <a href="#" class="card-link">Card link</a>
-        <a href="#" class="card-link">Another link</a>
-      </div>
-    </div>
+  <div class="d-flex">
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">username</th>
+          <th scope="col">email</th>
+          <th scope="col">role</th>
+          <th colspan="3" scope="col">action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% users.map((user,i) =>{ %>
+
+        <tr>
+          <th scope="row"><%= ++i %></th>
+          <td><%= user.username %></td>
+          <td><%= user.email %></td>
+          <td><%= user.role %></td>
+          <td class="d-flex gap-1">
+            <a class="btn btn-warning" href="detail/<%= user.id %>">detail</a>
+            <a class="btn btn-success" href="edit/<%= user.id %>">edit</a>
+            <button
+              class="btn btn-danger"
+              id="delete-button"
+              data-id="<%= user.id %>"
+            >
+              delete
+            </button>
+          </td>
+        </tr>
+        <% }) %>
+      </tbody>
+    </table>
   </div>
 </div>
+
+<script>
+  const deleteButton = document.getElementById("delete-button");
+</script>

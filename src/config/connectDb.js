@@ -1,4 +1,4 @@
-export default async function connectDb() {
+const connectDb = async () => {
   // get the client
   const mysql = require("mysql2/promise");
   // create the connection
@@ -13,4 +13,6 @@ export default async function connectDb() {
   //     ["Morty", 14]
   //   );
   return connection;
-}
+};
+
+export default connectDb;
